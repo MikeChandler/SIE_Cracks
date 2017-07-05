@@ -1,6 +1,6 @@
 function [proporno,thetamax] = anisopropangle2(KI,KII,phi,KIcField,angleaccuracy,poisrat,Youngsmod,gammadeg)
-%Finds the angle at which the maximum value of sig_QQ/sig_T occurs for an
-%elliptically anisotropic material
+%Finds the angle at which the maximum value of sig_QQ/sig_T occurs for a transversely isotropic material in which 
+%tensile strength varies elliptically
 %thetaKIcfield needs to be in radians
 %proporno comes out equal to 1 if GI is greater than GIc at some angle,
 %otherwise it is zero
@@ -22,8 +22,8 @@ clearvars thetadeg
 zeta=theta+phi;
 
 %--------------------------------------------------
-%Calculate crack tip stress intensity factors
-%following cotterell80
+%Calculate deflected crack tip stress intensity factors
+%following cotterell, 1980
 %--------------------------------------------------
 C11=(1/4)*((3*cos(theta/2))+cos(theta*3/2));
 C12=(-3/4)*(sin(theta/2)+sin(theta*3/2));
