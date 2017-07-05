@@ -29,16 +29,15 @@ for step=1:nsteps
     %construct the matrix A and vector B.
     %stressstate
     defineB_braz
-    
-    disp('made B')
+    disp('constructed B')
     defineA
-    disp('made A')
+    disp('constructed A')
     
     %Invert for C
     performinversion
     disp('performed inversion')
     
-    %find KI and KII at each end
+    %find KI and KII at the tips
     findKIandKII
     
         if KIonly == 1
@@ -46,11 +45,10 @@ for step=1:nsteps
         end
 
 
-    %calculate propagation angle
+    %calculate the propagation angle at each end
     findpropangles_KIcField
-
-    %findpropangles
-
+    
+    %plot the initial shape of the crack
     if step==1
        plot_braziliandiskcrack    
     end
@@ -71,9 +69,7 @@ for step=1:nsteps
     if proporno==1  
            stringy=strcat('alpha_left =',num2str(alpha_left_deg),', alpha_right =',num2str(alpha_right_deg));
             disp(stringy)
-            clearvars stringy
-
-
+           clearvars stringy
         %add the new segments onto the crack
         cracksetup
              %plot it only when it propagates
